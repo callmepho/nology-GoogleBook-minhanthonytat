@@ -25,7 +25,7 @@ function Card({
 				<img className={style.card__img} src={imageLinks} />
 				<h4 className={style.card__title}>Title: {title}</h4>
 				<h5 className={style.card__author}>Author: {authors}</h5>
-				<p className={style.card__clickme}>Click for description</p>
+				<p className={style.card__clickme}>See more</p>
 			</div>
 		</div>
 	);

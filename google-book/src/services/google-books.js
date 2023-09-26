@@ -8,7 +8,7 @@ export const getBooksBySearchTerm = async (
 	}
 	console.log(searchTerm, maxResults, pageIndex);
 	const response = await fetch(
-		`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=${maxResults}&startIndex=${pageIndex}&key=AIzaSyAYhxAm1FpKGfNMCX-5dm7_YyXT9fiNhmU`
+		`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=${maxResults}&startIndex=${pageIndex}`
 	);
 	if (!response.ok) {
 		throw new Error("Failed to fetch book search");

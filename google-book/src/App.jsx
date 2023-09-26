@@ -15,6 +15,7 @@ function App() {
 	return (
 		<>
 			<h1>Google Book Search</h1>
+			<h3>Click on book cards to display more info.</h3>
 			<hr></hr>
 
 			<Search handleSubmit={handleSubmit} />
