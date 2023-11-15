@@ -1,31 +1,36 @@
 .card__img {
-	height: 170px;
-	width: 120px;
+  height: 170px;
+  width: 120px;
 }
 
 .card {
-	border: 5px solid #b9d7ea;
-	padding: 5px;
-	height: 100%;
-	width: 280px;
-	background-color: #d6e6f2;
-	color: black;
-	position: relative;
-	border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 5px;
+  height: 100%;
+  width: 280px;
+  background-color: #d6e6f2;
+  color: black;
+  position: relative;
+  border-radius: 5px;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+      rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    cursor: pointer;
+  }
 }
 
 .card__title {
-	margin-top: 5px;
-	margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .card__author {
-	margin-top: 5px;
-	margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .card__clickme {
-	position: absolute;
-	bottom: 0;
-	right: 5px;
-	margin: 0px;
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  margin: 0px;
 }

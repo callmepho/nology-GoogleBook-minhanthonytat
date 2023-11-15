@@ -1,11 +1,12 @@
 .btn {
-	border: 2px solid #b9d7ea;
-	border-radius: 5px;
-	background-color: #d6e6f2;
-	margin: 10px;
-	font-size: medium;
-	&:hover {
-		border: 2px solid #d6e6f2;
-		background-color: #b9d7ea;
-	}
+  border: 2px solid #b9d7ea;
+  border-radius: 5px;
+  background-color: #d6e6f2;
+  margin: 10px;
+  font-size: medium;
+  &:hover {
+    border: 2px solid #d6e6f2;
+    background-color: #b9d7ea;
+    cursor: pointer;
+  }
 }

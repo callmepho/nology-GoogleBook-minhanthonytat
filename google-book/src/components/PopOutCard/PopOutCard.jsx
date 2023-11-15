@@ -24,7 +24,6 @@ function PopOutCard({ activeBook, setIsActive }) {
           <p>Average Rate: {volumeInfo.averageRating ?? "-"}/5</p>
           <p>Number of ratings: {volumeInfo.ratingsCount ?? "-"}</p>
           <p>Description: {volumeInfo.description ?? "-"}</p>
-          <button onClick={() => setIsActive(false)}>Close</button>
         </div>
       </div>
       <div className={style.wrapper} onClick={() => setIsActive(false)}></div>
