@@ -1,12 +1,32 @@
 import React from "react";
+import style from "./Card.module.scss";
+import { useState } from "react";
+import PopOutCard from "../PopOutCard/PopOutCard";
 
-function Card({ imageLinks = "nope", authors, title, description }) {
+function Card({
+	bookData,
+	imageLinks,
+	authors,
+	title,
+	setActiveBook,
+	isActive,
+	setIsActive,
+}) {
 	return (
 		<div>
-			<img src={imageLinks} />
-			<h5>Author: {authors}</h5>
-			<h4>Title: {title}</h4>
-			<p>Description: {description}</p>
+			<div
+				className={style.card}
+				onClick={() => {
+					if (!isActive) {
+						setActiveBook(bookData);
+						setIsActive(true);
+					}
+				}}>
+				<img className={style.card__img} src={imageLinks} />
+				<h4 className={style.card__title}>Title: {title}</h4>
+				<h5 className={style.card__author}>Author: {authors}</h5>
+				<p className={style.card__clickme}>See more</p>
+			</div>
 		</div>
 	);
 }

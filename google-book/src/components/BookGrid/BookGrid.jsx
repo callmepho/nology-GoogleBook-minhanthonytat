@@ -3,30 +3,33 @@ import Card from "../Card/Card";
 import { getBooksBySearchTerm } from "../../services/google-books";
 import { useState, useEffect } from "react";
 import style from "./BookGrid.module.scss";
+import PopOutCard from "../PopOutCard/PopOutCard";
 
-function BookGrid({ searchTerm }) {
-	const [bookData, setBookData] = useState(null);
-	const getBooks = () => {
-		getBooksBySearchTerm(searchTerm)
-			.then((books) => setBookData(books))
-			.catch((e) => console.log(e));
-	};
-	useEffect(() => {
-		getBooks();
-		console.log(bookData);
-	}, [searchTerm]);
+function BookGrid({ booksData }) {
+	const [activeBook, setActiveBook] = useState(null);
+	const [isActive, setIsActive] = useState(false);
+	const bookData = booksData.items;
 	return (
 		<div className={style.bookgrid}>
-			{bookData !== null &&
+			{bookData &&
 				bookData.map((book, index) => (
 					<Card
 						key={`book-${index}`}
-						imageLinks={book.volumeInfo.imageLinks?.thumbnail ?? ""}
-						authors={book.volumeInfo.authors}
+						bookData={book}
+						imageLinks={
+							book.volumeInfo?.imageLinks?.thumbnail ??
+							"./src/assets/image-unavailable.png"
+						}
+						authors={book.volumeInfo.authors?.join(", ") ?? "-"}
 						title={book.volumeInfo.title}
-						description={book.volumeInfo.description}
+						setActiveBook={setActiveBook}
+						isActive={isActive}
+						setIsActive={setIsActive}
 					/>
 				))}
+			{isActive && (
+				<PopOutCard activeBook={activeBook} setIsActive={setIsActive} />
+			)}
 		</div>
 	);
 }

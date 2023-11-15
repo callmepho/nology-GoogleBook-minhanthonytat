@@ -1,31 +1,33 @@
 import React from "react";
 import { useState } from "react";
+import style from "./Search.module.scss";
 
 function Search({ handleSubmit }) {
 	const [inputValue, setInputValue] = useState("");
+	const [searchLimit, setSearchLimit] = useState("10");
 	const formSubmit = (e) => {
 		e.preventDefault();
-		handleSubmit(inputValue);
-	};
-
-	const onInputChange = (e) => {
-		setInputValue(e.target.value);
+		const submitted = { inputValue, searchLimit };
+		handleSubmit(submitted);
 	};
 
 	return (
-		<form onSubmit={formSubmit}>
+		<form className={style.search} onSubmit={formSubmit}>
 			<input
-				onChange={onInputChange}
+				className={style.search_input}
+				onChange={(e) => setInputValue(e.target.value)}
 				type="text"
 				placeholder="search"
 				value={inputValue}></input>
-			<select>
+			<select
+				value={searchLimit}
+				onChange={(e) => setSearchLimit(e.target.value)}>
 				<option>10</option>
 				<option>20</option>
 				<option>30</option>
 				<option>40</option>
 			</select>
-			<button>Search</button>
+			<button className={style.search_btn}>Search</button>
 		</form>
 	);
 }
